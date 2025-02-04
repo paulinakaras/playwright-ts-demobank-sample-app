@@ -2,7 +2,7 @@
 
 Application with Type Script language and Playwright framework for training purposes.
 
-## GitHub commends
+## GitHub commands
 
 - `git init`
 - `git config user.name "paulinakaras"`
@@ -12,6 +12,9 @@ Application with Type Script language and Playwright framework for training purp
 - `git commit -m "title"`
 - `git push -u origin main`
 
-## Playright commends
+## Playright commands
 
 - `npm init playwright@latest`
+- `npx playwright codegen https://demo-bank.vercel.app/`
+- `npx playwright test`
+- `npx playwright show-report`
