@@ -1,0 +1,22 @@
+{
+  "name": "playwright-ts-demobank-sample-app",
+  "version": "1.0.0",
+  "description": "Application with Type Script language and Playwright framework for training purposes.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulinakaras/playwright-ts-demobank-sample-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulinakaras/playwright-ts-demobank-sample-app/issues"
+  },
+  "homepage": "https://github.com/paulinakaras/playwright-ts-demobank-sample-app#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1"
+  }
+}

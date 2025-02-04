@@ -2,7 +2,7 @@
 
 Application with Type Script language and Playwright framework for training purposes.
 
-## GitHub comments
+## GitHub commends
 
 - `git init`
 - `git config user.name "paulinakaras"`
@@ -11,3 +11,7 @@ Application with Type Script language and Playwright framework for training purp
 - `git add .`
 - `git commit -m "title"`
 - `git push -u origin main`
+
+## Playright commends
+
+- `npm init playwright@latest`
