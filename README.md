@@ -18,3 +18,4 @@ Application with Type Script language and Playwright framework for training purp
 - `npx playwright codegen https://demo-bank.vercel.app/`
 - `npx playwright test`
 - `npx playwright show-report`
+- `npx playwright test --headed`

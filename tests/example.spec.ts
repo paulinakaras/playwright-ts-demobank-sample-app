@@ -7,4 +7,6 @@ test('test', async ({ page }) => {
   await page.getByTestId('password-input').click();
   await page.getByTestId('password-input').fill('test1234');
   await page.getByTestId('login-button').click();
+
+  await expect(page.getByTestId('user-name')).toHaveText('Jan Demobankowy');
 });
