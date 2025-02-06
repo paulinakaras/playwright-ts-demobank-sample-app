@@ -23,3 +23,5 @@ Application with Type Script language and Playwright framework for training purp
 ## Visual Studio Code 
 
 - `shift + option + F` - format document
+- `command +` - zoom in
+- `command -` - zoom out
