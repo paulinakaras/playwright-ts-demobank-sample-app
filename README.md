@@ -29,6 +29,7 @@ Application with Type Script language and Playwright framework for training purp
 - `command -` - zoom out
 - `option + left/right arrow` - skip whole word
 - `option + shift + left/right arrow` - mark whole word
+- `option + shift + down arrow` - duplicate code line
 
 ## Terminal commands
 
