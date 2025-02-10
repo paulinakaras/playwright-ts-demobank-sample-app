@@ -27,3 +27,10 @@ Application with Type Script language and Playwright framework for training purp
 - `shift + option + F` - format document
 - `command +` - zoom in
 - `command -` - zoom out
+- `option + left/right arrow` - skip whole word
+- `option + shift + left/right arrow` - mark whole word
+
+## Terminal commands
+
+- `command + backspace` - remove whole word
+- `option + left/right arrow` - skip whole word
