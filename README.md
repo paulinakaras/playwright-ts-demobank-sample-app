@@ -30,6 +30,8 @@ Application with Type Script language and Playwright framework for training purp
 - `option + left/right arrow` - skip whole word
 - `option + shift + left/right arrow` - mark whole word
 - `option + shift + down arrow` - duplicate code line
+- `control + shift + R` - refactor
+- `option + up/down arrow` - move up/down the line
 
 ## Terminal commands
 
