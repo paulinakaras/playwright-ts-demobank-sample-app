@@ -17,6 +17,7 @@
   "homepage": "https://github.com/paulinakaras/playwright-ts-demobank-sample-app#readme",
   "devDependencies": {
     "@playwright/test": "^1.50.1",
-    "@types/node": "^22.13.1"
+    "@types/node": "^22.13.1",
+    "pretier": "0.0.1"
   }
 }
