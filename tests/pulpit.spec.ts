@@ -13,6 +13,7 @@ test.describe('Pulpit tests', () => {
     const transferAmount = '120';
     const transferTitle = 'zwrot srodkow';
     const expectedTransferReceiver = 'Chuck Demobankowy';
+    const expectedMessagge = `Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`;
 
     // Act
     await page.goto(url);
@@ -29,27 +30,35 @@ test.describe('Pulpit tests', () => {
     await page.getByTestId('close-button').click();
 
     // Assert
-    await expect(page.locator('#show_messages')).toHaveText(
-      `Przelew wykonany! ${expectedTransferReceiver} - ${transferAmount},00PLN - ${transferTitle}`,
-    );
+    await expect(page.locator('#show_messages')).toHaveText(expectedMessagge);
   });
 
   test('successful mobile top-up', async ({ page }) => {
-    await page.goto('https://demo-bank.vercel.app/');
-    await page.getByTestId('login-input').fill('testerLO');
-    await page.getByTestId('password-input').fill('asdfg123');
+    // Arrange
+    const url = 'https://demo-bank.vercel.app/';
+    const userId = 'tester01';
+    const userPassword = 'test1234';
+    const topupReceiver = '500 xxx xxx';
+    const topupAmount = '40';
+    const expectedTopupMessage = `Doładowanie wykonane! ${topupAmount},00PLN na numer ${topupReceiver}`;
+
+    // Act
+    await page.goto(url);
+    await page.getByTestId('login-input').fill(userId);
+    await page.getByTestId('password-input').fill(userPassword);
     await page.getByTestId('login-button').click();
 
     await page.waitForLoadState('domcontentloaded');
 
-    await page.locator('#widget_1_topup_receiver').selectOption('500 xxx xxx');
-    await page.locator('#widget_1_topup_amount').fill('40');
+    await page.locator('#widget_1_topup_receiver').selectOption(topupReceiver);
+    await page.locator('#widget_1_topup_amount').fill(topupAmount);
     await page.locator('#uniform-widget_1_topup_agreement span').click();
     await page.getByRole('button', { name: 'doładuj telefon' }).click();
     await page.getByTestId('close-button').click();
 
+    // Assert
     await expect(page.locator('#show_messages')).toHaveText(
-      'Doładowanie wykonane! 40,00PLN na numer 500 xxx xxx',
+      expectedTopupMessage,
     );
   });
 });

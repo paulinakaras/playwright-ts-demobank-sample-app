@@ -33,6 +33,7 @@ Application with Type Script language and Playwright framework for training purp
 - `option + shift + down arrow` - duplicate code line
 - `control + shift + R` - refactor
 - `option + up/down arrow` - move up/down the line
+- `fn + F2` - rename
 
 ## Terminal commands
 
