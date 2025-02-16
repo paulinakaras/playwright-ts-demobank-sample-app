@@ -22,6 +22,7 @@ Application with Type Script language and Playwright framework for training purp
 - `npx playwright test --repeat-each=10` - run test and repeat multiple times
 - `npx playwright test --retries=3` - try to retry test multiple times if test failed
 - `npx playwright show-trace trace.zip` - run Trace Viewer for trace.zip file, remember to select correct path, find direct folder -> right mouse click -> Open in Integrated Terminal
+- `npx playwright test tests/login.spec.ts` - run test for specific file
 
 ## Visual Studio Code
 
@@ -37,7 +38,8 @@ Application with Type Script language and Playwright framework for training purp
 
 ## Terminal commands
 
-- `command + backspace` - remove whole word
+- `command + backspace` - remove whole line
+- `option + backspace` - remove whole word
 - `option + left/right arrow` - skip whole word
 
 ## Prettier
