@@ -4,11 +4,10 @@ test.describe('Pulpit tests', () => {
   // test.describe.configure({ retries: 3 }); // configuration for flaky test
 
   test.beforeEach(async ({ page }) => {
-    const url = 'https://demo-bank.vercel.app/';
     const userId = 'tester01';
     const userPassword = 'test1234';
 
-    await page.goto(url);
+    await page.goto('/');
     await page.getByTestId('login-input').fill(userId);
     await page.getByTestId('password-input').fill(userPassword);
     await page.getByTestId('login-button').click();

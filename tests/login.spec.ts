@@ -1,10 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('User login to Demobank', () => {
-  
   test.beforeEach(async ({ page }) => {
-    const url = 'https://demo-bank.vercel.app/';
-    await page.goto(url);
+    await page.goto('/');
   });
 
   test('successful login with correct credentials', async ({ page }) => {
@@ -33,7 +31,7 @@ test.describe('User login to Demobank', () => {
 
     // Assert
     await expect(page.getByTestId('error-login-id')).toHaveText(
-      expectedErrorLoginMessage
+      expectedErrorLoginMessage,
     );
   });
 
@@ -50,7 +48,7 @@ test.describe('User login to Demobank', () => {
 
     // Assert
     await expect(page.getByTestId('error-login-password')).toHaveText(
-      expectedErrorPasswordMessage
+      expectedErrorPasswordMessage,
     );
   });
 });
