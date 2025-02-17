@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Application with Type Script language and Playwright framework for training purposes.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:pulpit": "npx playwright test tests/pulpit.spec.ts",
+    "test:pulpit:headed": "npx playwright test tests/pulpit.spec.ts --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/paulinakaras/playwright-ts-demobank-sample-app.git"
