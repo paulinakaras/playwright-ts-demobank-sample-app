@@ -35,6 +35,8 @@ Application with Type Script language and Playwright framework for training purp
 - `control + shift + R` - refactor
 - `option + up/down arrow` - move up/down the line
 - `fn + F2` - rename
+- `command + shift + P` - open possible instructions (eg Open User Settings)
+- `command + S` - save file - also formating because of 'format on save' option enabled
 
 ## Terminal commands
 
