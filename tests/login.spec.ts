@@ -29,11 +29,12 @@ test.describe('User login to Demobank', () => {
     const expectedErrorLoginMessage = 'identyfikator ma min. 8 znaków';
 
     // Act
-    await page.getByTestId('login-input').fill(invalidUserId);
-    await page.getByTestId('password-input').click();
+    const loginPage = new LoginPage(page);
+    await loginPage.loginInput.fill(invalidUserId);
+    await loginPage.passwordInput.click();
 
     // Assert
-    await expect(page.getByTestId('error-login-id')).toHaveText(
+    await expect(loginPage.errorLoginMessage).toHaveText(
       expectedErrorLoginMessage,
     );
   });
@@ -45,12 +46,13 @@ test.describe('User login to Demobank', () => {
     const expectedErrorPasswordMessage = 'hasło ma min. 8 znaków';
 
     // Act
-    await page.getByTestId('login-input').fill(userId);
-    await page.getByTestId('password-input').fill(invalidUserPassword);
-    await page.getByTestId('password-input').blur();
+    const loginPage = new LoginPage(page);
+    await loginPage.loginInput.fill(userId);
+    await loginPage.passwordInput.fill(invalidUserPassword);
+    await loginPage.passwordInput.blur();
 
     // Assert
-    await expect(page.getByTestId('error-login-password')).toHaveText(
+    await expect(loginPage.errorPasswordMessage).toHaveText(
       expectedErrorPasswordMessage,
     );
   });
