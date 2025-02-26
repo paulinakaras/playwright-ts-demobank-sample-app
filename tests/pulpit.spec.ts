@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
+import { QuickPaymentPage } from '../pages/quick-payment.page';
 
 test.describe('Pulpit tests', () => {
   // test.describe.configure({ retries: 3 }); // configuration for flaky test
@@ -27,10 +28,11 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await page.locator('#widget_1_transfer_receiver').selectOption(receiverId);
-    await page.locator('#widget_1_transfer_amount').fill(transferAmount);
-    await page.locator('#widget_1_transfer_title').fill(transferTitle);
-    await page.getByRole('button', { name: 'wykonaj' }).click();
+    const quickPaymentPage = new QuickPaymentPage(page);
+    await quickPaymentPage.transferReceiver.selectOption(receiverId);
+    await quickPaymentPage.transferAmount.fill(transferAmount);
+    await quickPaymentPage.transferTitle.fill(transferTitle);
+    await quickPaymentPage.doTranferButton.click();
     await page.getByTestId('close-button').click();
 
     // Assert
