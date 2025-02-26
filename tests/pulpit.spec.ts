@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
-import { QuickPaymentPage } from '../pages/quick-payment.page';
+import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Pulpit tests', () => {
   // test.describe.configure({ retries: 3 }); // configuration for flaky test
@@ -28,11 +28,11 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    const quickPaymentPage = new QuickPaymentPage(page);
-    await quickPaymentPage.transferReceiver.selectOption(receiverId);
-    await quickPaymentPage.transferAmount.fill(transferAmount);
-    await quickPaymentPage.transferTitle.fill(transferTitle);
-    await quickPaymentPage.doTranferButton.click();
+    const pulpitPage = new PulpitPage(page);
+    await pulpitPage.transferReceiver.selectOption(receiverId);
+    await pulpitPage.transferAmount.fill(transferAmount);
+    await pulpitPage.transferTitle.fill(transferTitle);
+    await pulpitPage.doTranferButton.click();
     await page.getByTestId('close-button').click();
 
     // Assert
@@ -48,10 +48,11 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await page.locator('#widget_1_topup_receiver').selectOption(topupReceiver);
-    await page.locator('#widget_1_topup_amount').fill(topupAmount);
-    await page.locator('#uniform-widget_1_topup_agreement span').click();
-    await page.getByRole('button', { name: 'doładuj telefon' }).click();
+    const pulpitPage = new PulpitPage(page);
+    await pulpitPage.topupReceiver.selectOption(topupReceiver);
+    await pulpitPage.topupAmount.fill(topupAmount);
+    await pulpitPage.topUpAgreementCheckbox.click();
+    await pulpitPage.topUpMobileButton.click();
     await page.getByTestId('close-button').click();
 
     // Assert
