@@ -33,10 +33,10 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.transferAmount.fill(transferAmount);
     await pulpitPage.transferTitle.fill(transferTitle);
     await pulpitPage.doTranferButton.click();
-    await page.getByTestId('close-button').click();
+    await pulpitPage.closeButton.click();
 
     // Assert
-    await expect(page.locator('#show_messages')).toHaveText(expectedMessagge);
+    await expect(pulpitPage.messageText).toHaveText(expectedMessagge);
   });
 
   test('successful mobile top-up', async ({ page }) => {
@@ -53,12 +53,10 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.topupAmount.fill(topupAmount);
     await pulpitPage.topUpAgreementCheckbox.click();
     await pulpitPage.topUpMobileButton.click();
-    await page.getByTestId('close-button').click();
+    await pulpitPage.closeButton.click();
 
     // Assert
-    await expect(page.locator('#show_messages')).toHaveText(
-      expectedTopupMessage,
-    );
+    await expect(pulpitPage.messageText).toHaveText(expectedTopupMessage);
   });
 
   test('correct balance after successful mobile top-up', async ({ page }) => {
@@ -71,13 +69,14 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await page.locator('#widget_1_topup_receiver').selectOption(topupReceiver);
-    await page.locator('#widget_1_topup_amount').fill(topupAmount);
-    await page.locator('#uniform-widget_1_topup_agreement span').click();
-    await page.getByRole('button', { name: 'doładuj telefon' }).click();
-    await page.getByTestId('close-button').click();
+    const pulpitPage = new PulpitPage(page);
+    await pulpitPage.topupReceiver.selectOption(topupReceiver);
+    await pulpitPage.topupAmount.fill(topupAmount);
+    await pulpitPage.topUpAgreementCheckbox.click();
+    await pulpitPage.topUpMobileButton.click();
+    await pulpitPage.closeButton.click();
 
     // Assert
-    await expect(page.locator('#money_value')).toHaveText(`${expectedBalance}`);
+    await expect(pulpitPage.moneyValue).toHaveText(`${expectedBalance}`);
   });
 });

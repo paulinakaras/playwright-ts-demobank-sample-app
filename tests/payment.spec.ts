@@ -31,9 +31,9 @@ test.describe('Payment tests', () => {
     await paymentPage.transferAccount.fill(transferAccount);
     await paymentPage.transferAmount.fill(transferAmount);
     await paymentPage.doTransferButton.click();
-    await page.getByTestId('close-button').click();
+    await paymentPage.closeButton.click();
 
     // Assert
-    await expect(page.locator('#show_messages')).toHaveText(expectedMessage);
+    await expect(paymentPage.messageText).toHaveText(expectedMessage);
   });
 });
