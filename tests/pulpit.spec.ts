@@ -5,6 +5,7 @@ import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Pulpit tests', () => {
   // test.describe.configure({ retries: 3 }); // configuration for flaky test
+  let pulpitPage: PulpitPage;
 
   test.beforeEach(async ({ page }) => {
     const userId = loginData.userId;
@@ -12,9 +13,9 @@ test.describe('Pulpit tests', () => {
 
     await page.goto('/');
     const loginPage = new LoginPage(page);
-    await loginPage.loginInput.fill(userId);
-    await loginPage.passwordInput.fill(userPassword);
-    await loginPage.loginButton.click();
+    await loginPage.login(userId, userPassword);
+
+    pulpitPage = new PulpitPage(page);
   });
 
   test('quick payment with correct data', async ({ page }) => {
@@ -28,7 +29,6 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.transferReceiver.selectOption(receiverId);
     await pulpitPage.transferAmount.fill(transferAmount);
     await pulpitPage.transferTitle.fill(transferTitle);
@@ -48,7 +48,6 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.topupReceiver.selectOption(topupReceiver);
     await pulpitPage.topupAmount.fill(topupAmount);
     await pulpitPage.topUpAgreementCheckbox.click();
@@ -69,7 +68,6 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.topupReceiver.selectOption(topupReceiver);
     await pulpitPage.topupAmount.fill(topupAmount);
     await pulpitPage.topUpAgreementCheckbox.click();
