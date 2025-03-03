@@ -31,11 +31,11 @@ test.describe('Payment tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await paymentPage.transferReceiver.fill(transferReceiver);
-    await paymentPage.transferAccount.fill(transferAccount);
-    await paymentPage.transferAmount.fill(transferAmount);
-    await paymentPage.doTransferButton.click();
-    await paymentPage.closeButton.click();
+    await paymentPage.makeTranfer(
+      transferReceiver,
+      transferAccount,
+      transferAmount,
+    );
 
     // Assert
     await expect(paymentPage.messageText).toHaveText(expectedMessage);

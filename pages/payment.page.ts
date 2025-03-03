@@ -27,4 +27,17 @@ export class PaymentPage {
 
     this.sideMenu = new SideMenuComponent(this.page);
   }
+
+  async makeTranfer(
+    transferReceiver: string,
+    transferAccount: string,
+    transferAmount: string,
+  ): Promise<void> {
+    await this.transferReceiver.fill(transferReceiver);
+    await this.transferAccount.fill(transferAccount);
+    await this.transferAmount.fill(transferAmount);
+
+    await this.doTransferButton.click();
+    await this.closeButton.click();
+  }
 }
