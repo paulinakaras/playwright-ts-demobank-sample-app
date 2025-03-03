@@ -28,10 +28,10 @@ export class PaymentPage {
     this.sideMenu = new SideMenuComponent(this.page);
   }
 
-  async makeTranfer(
+  async makeTransfer(
     transferReceiver: string,
     transferAccount: string,
-    transferAmount: string,
+    transferAmount: string
   ): Promise<void> {
     await this.transferReceiver.fill(transferReceiver);
     await this.transferAccount.fill(transferAccount);

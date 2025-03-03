@@ -31,10 +31,10 @@ test.describe('Payment tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await paymentPage.makeTranfer(
+    await paymentPage.makeTransfer(
       transferReceiver,
       transferAccount,
-      transferAmount,
+      transferAmount
     );
 
     // Assert
