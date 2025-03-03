@@ -29,11 +29,7 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await pulpitPage.transferReceiver.selectOption(receiverId);
-    await pulpitPage.transferAmount.fill(transferAmount);
-    await pulpitPage.transferTitle.fill(transferTitle);
-    await pulpitPage.doTranferButton.click();
-    await pulpitPage.closeButton.click();
+    await pulpitPage.doQuickPayment(receiverId, transferAmount, transferTitle);
 
     // Assert
     await expect(pulpitPage.messageText).toHaveText(expectedMessagge);
@@ -48,11 +44,7 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await pulpitPage.topupReceiver.selectOption(topupReceiver);
-    await pulpitPage.topupAmount.fill(topupAmount);
-    await pulpitPage.topUpAgreementCheckbox.click();
-    await pulpitPage.topUpMobileButton.click();
-    await pulpitPage.closeButton.click();
+    await pulpitPage.topUpMobile(topupReceiver, topupAmount);
 
     // Assert
     await expect(pulpitPage.messageText).toHaveText(expectedTopupMessage);
@@ -68,11 +60,7 @@ test.describe('Pulpit tests', () => {
     // Act
     await page.waitForLoadState('domcontentloaded');
 
-    await pulpitPage.topupReceiver.selectOption(topupReceiver);
-    await pulpitPage.topupAmount.fill(topupAmount);
-    await pulpitPage.topUpAgreementCheckbox.click();
-    await pulpitPage.topUpMobileButton.click();
-    await pulpitPage.closeButton.click();
+    await pulpitPage.topUpMobile(topupReceiver, topupAmount);
 
     // Assert
     await expect(pulpitPage.moneyValue).toHaveText(`${expectedBalance}`);
