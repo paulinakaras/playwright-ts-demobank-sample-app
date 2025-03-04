@@ -23,6 +23,7 @@ Application with Type Script language and Playwright framework for training purp
 - `npx playwright test --retries=3` - try to retry test multiple times if test failed
 - `npx playwright show-trace trace.zip` - run Trace Viewer for trace.zip file, remember to select correct path, find direct folder -> right mouse click -> Open in Integrated Terminal
 - `npx playwright test tests/login.spec.ts` - run test for specific file
+- `npx playwright test --grep "@login"` - run tests with login tag
 
 ## Visual Studio Code
 

@@ -7,7 +7,8 @@
     "test": "npx playwright test",
     "test:headed": "npx playwright test --headed",
     "test:pulpit": "npx playwright test tests/pulpit.spec.ts",
-    "test:pulpit:headed": "npx playwright test tests/pulpit.spec.ts --headed"
+    "test:pulpit:headed": "npx playwright test tests/pulpit.spec.ts --headed",
+    "test:login": "npx playwright test --grep \"@login\""
   },
   "repository": {
     "type": "git",
